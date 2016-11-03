@@ -27,15 +27,15 @@ fn main() {
         .arg(Arg::with_name("forward")
             .short("o")
             .long("forward")
-            .help("sets the port to forward to on localhost")
+            .help("sets the forward address")
             .multiple(false)
             .takes_value(true)
             .required(true))
         .get_matches();
 
     let listen_port = matches.value_of("listen").expect("failed to get listen port");
-    let forward_port = matches.value_of("forward").expect("failed to get forward port");
+    let forward_to = matches.value_of("forward").expect("failed to get forward port");
 
-    server::run(listen_port.to_string(), forward_port.to_string())
+    server::run(listen_port.to_string(), forward_to.to_string())
         .expect("server error!");
 }
