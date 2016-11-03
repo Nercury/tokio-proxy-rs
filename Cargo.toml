@@ -1,0 +1,11 @@
+[package]
+name = "mio-proxy-rs"
+version = "0.1.0"
+authors = ["Nerijus Arlauskas <nercury@gmail.com>"]
+
+[dependencies]
+clap = "2.17.1"
+futures = "0.1"
+tokio-core = "0.1"
+env_logger = "0.3"
+log = "0.3"
