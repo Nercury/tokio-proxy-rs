@@ -10,7 +10,7 @@ use tokio_core::net::{TcpListener, TcpStream};
 use tokio_core::reactor::Core;
 
 pub fn run(listen_port: String, forward_to: String) -> Result<()> {
-    let addr = format!("127.0.0.1:{}", listen_port)
+    let addr = format!("0.0.0.0:{}", listen_port)
         .parse::<SocketAddr>().unwrap();
 
     let fwd_addr = forward_to.parse::<SocketAddr>().unwrap();
