@@ -22,6 +22,9 @@ pub fn run(listen_port: String, forward_to: String) -> Result<()> {
     let done = accept_socket.incoming().for_each(move |(server_socket, _addr)| {
         let client_pair = TcpStream::connect(&fwd_addr, &handle).map(|socket| socket.split());
 
+        // For up-to date and correct version, see
+        // official example at https://github.com/tokio-rs/tokio-core/blob/master/examples/proxy.rs
+
         let amt = client_pair
             .and_then(move |(client_reader, client_writer)| {
                 let (server_reader, server_writer) = server_socket.split();
